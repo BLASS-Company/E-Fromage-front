@@ -1,34 +1,50 @@
 # blass_pff_front
 
-## Project setup
+## Récupérer le projet git
+```
+copier le lien git
+git clone + le lien git
+```
+
+## Récupérer les branches git
+```
+git fetch
+```
+
+## Choisir la branche
+```
+git checkout nom_de_la_branche
+```
+
+## Préparation du projet
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Lancement du serveur
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Lancement pour développement
 ```
 npm run build
 ```
 
-### Run your unit tests
+### Lancement des tests unitaires
 ```
 npm run test:unit
 ```
 
-### Run your end-to-end tests
+### Lancement des test end-to-end
 ```
 npm run test:e2e
 ```
 
-### Lints and fixes files
+### Lancement de Lint
 ```
 npm run lint
 ```
 
-### Customize configuration
+### Configuration customisé
 See [Configuration Reference](https://cli.vuejs.org/config/).
