@@ -9,6 +9,7 @@ Vue.use(VueAxios, axios)
 export default new Vuex.Store({
   state: {
     produits: [],
+    panier: 0,
   },
   mutations: {
     SET_Produits (state, produits) {
@@ -46,7 +47,6 @@ export default new Vuex.Store({
       .then(response => {
         console.log(response);
         this.commit('UPDATE_Produits', response.data);
-        this.dispatch('loadProduits');
       })
     }
   },
