@@ -15,6 +15,18 @@ git fetch
 ```
 git checkout nom_de_la_branche
 ```
+## Supprimer branche git localement
+```
+git branch -d nom_de_la_branche
+```
+## Supprimer branche git du dépôt distant
+```
+si on a copié le dossier via la commande git clone:
+git push origin :nom_de_la_branch
+
+si on a créer le dossier localement puis ajouter sur le dépot distant:
+git push nom_du_depot_distant :nom_de_la_branche
+```
 
 ## Préparation du projet
 ```
