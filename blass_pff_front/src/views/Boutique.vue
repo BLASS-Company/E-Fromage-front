@@ -11,21 +11,13 @@
 
 <script>
 import Produit from "../components/Produit.vue";
-// import { mapState } from "vuex";
 
 export default {
   name: "Boutique",
   components: { Produit },
   mounted() {
     this.$store.dispatch("loadProduits");
-    // console.log(this.produits)
   },
-  // computed: mapState([
-  //   'produits'
-  // ])
-  // computed: mapState({
-  //   produits: (state) => state.produits,
-  // }),
   computed: {
     produits() {
       return this.$store.state.produits

@@ -10,11 +10,6 @@ export default new Vuex.Store({
   state: {
     produits: [],
   },
-  // getters: {
-  //   produits: state => {
-  //       return state.produits;
-  //   }
-  // },
   mutations: {
     SET_Produits (state, produits) {
       state.produits = produits
@@ -50,8 +45,8 @@ export default new Vuex.Store({
       })
       .then(response => {
         console.log(response);
-        // this.dispatch('loadProduits');
         this.commit('UPDATE_Produits', response.data);
+        this.dispatch('loadProduits');
       })
     }
   },
