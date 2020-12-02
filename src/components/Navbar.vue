@@ -2,7 +2,7 @@
   <div id="nav">
       <img src="" alt="Logo la ferme d'epitech">
       <router-link to="/">Accueil</router-link> |
-      <router-link to="/boutique">Nos Produits</router-link> |
+      <router-link to="/boutique/posts">Nos Produits</router-link> |
       <router-link to="/contact">Contact</router-link> |
       <router-link to="/a_propos">A Propos</router-link>
       <div>

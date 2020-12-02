@@ -15,7 +15,7 @@ export default {
   name: "Boutique",
   components: { Produit },
   mounted() {
-    this.$store.dispatch("loadProduits");
+    this.$store.dispatch("loadProduits", this.$route.params.chemin);
   },
   computed: {
     produits() {
