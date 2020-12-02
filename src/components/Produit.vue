@@ -1,6 +1,7 @@
 <template>
     <div>
         {{produit}}
+        
     </div>
 </template>
 
