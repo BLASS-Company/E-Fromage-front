@@ -5,7 +5,6 @@
       :key="produit.name"
       v-bind:produit="produit"
     />
-    <button @click="newproduits()">test moi</button>
   </div>
 </template>
 
@@ -23,11 +22,6 @@ export default {
       return this.$store.state.produits
     }
   },
-  methods: {
-    newproduits(){
-      this.$store.dispatch("changeProduits");
-    }
-  }
 };
 </script>
 
