@@ -20,9 +20,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    loadProduits ({ commit }) {
+    loadProduits ({ commit }, chemin) {
       axios
-          .get('https://jsonplaceholder.typicode.com/posts', {
+          .get(`https://jsonplaceholder.typicode.com/${chemin}`, {
               headers: {
                 'Content-type': 'application/json; charset=UTF-8',
               }

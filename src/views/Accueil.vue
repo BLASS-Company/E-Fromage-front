@@ -1,22 +1,22 @@
 <template>
-  <div >
+  <div>
     <div class="selection">
       <h2>Notre Selection</h2>
       <p>Découvrez nos meilleurs fromages</p>
-      <button @click="shop()">Voir plus</button>
-      <img src="../assets/selection.jpg" alt="selection">
+      <button @click="selection()">Voir plus</button>
+      <img src="../assets/selection.jpg" alt="selection" />
     </div>
-     <div class="offer">
+    <div class="offer">
       <h2>Nos plateaux de fromages</h2>
       <p>Appréciez nos fromages à plusieurs</p>
-      <button @click="shop()">Voir plus</button>
-      <img src="../assets/plateau.jpg" alt="plateau">
+      <button @click="plateau()">Voir plus</button>
+      <img src="../assets/plateau.jpg" alt="plateau" />
     </div>
-     <div class="present">
+    <div class="present">
       <h2>Nos idées cadeaux</h2>
       <p>Faites vous plaisir pendant les fêtes</p>
-      <button @click="shop()">Voir plus</button>
-      <img src="../assets/cadeau.jpg" alt="cadeau">
+      <button @click="cadeau()">Voir plus</button>
+      <img src="../assets/cadeau.jpg" alt="cadeau" />
     </div>
     <div class="propos">
       <h2>A propos des Pitech</h2>
@@ -36,16 +36,19 @@
 
 export default {
   name: "Accueil",
-  methods : {
-    shop () {
-      this.$router.push("/boutique")
+  methods: {
+    selection() {
+      this.$router.push("/boutique/selection");
+    },
+     plateau() {
+      this.$router.push("/boutique/plateau");
+    },
+     cadeau() {
+      this.$router.push("/boutique/cadeau");
     },
     propos() {
-      this.$router.push("/a_propos")
-    }
-  }
+      this.$router.push("/a_propos");
+    },
+  },
 };
 </script>
-
-
-
