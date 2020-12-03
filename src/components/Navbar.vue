@@ -6,16 +6,15 @@
     <v-row align="center">
     <v-tab><router-link to="/">Accueil</router-link></v-tab>
     <v-tab><router-link to="/boutique/posts">Nos Produits</router-link></v-tab>
-    <v-tab><router-link to="/contact">Contact</router-link></v-tab>
-    <v-tab><router-link to="/a_propos">A Propos</router-link></v-tab>
+    <v-tab><router-link to="/nous_contacter">Contact</router-link></v-tab>
+    <v-tab><router-link to="/a_propos_de_nous">A Propos</router-link></v-tab>
     </v-row>
     <v-tab>
-      <v-icon @click="Panier()">fa-shopping-cart</v-icon>
-      {{ paniercount }}
+      <v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>
+      {{ cartcount }}
    </v-tab>
-    <v-btn @click="Sign_in()">Identifiez-vous</v-btn>
-    <v-btn @click="Sign_up()">Inscrivez-vous</v-btn>
-    
+    <v-tab @click="go_to_sign_in()">Identifiez-vous</v-tab>
+    <v-tab @click="go_to_sign_up()">Inscrivez-vous</v-tab>
   </v-app-bar>
 </template>
 
@@ -23,18 +22,18 @@
 export default {
   name: "Navbar",
   computed: {
-    paniercount() {
-      return this.$store.state.panier;
+    cartcount() {
+      return this.$store.state.cart_count;
     },
   },
   methods: {
-    Panier() {
-      this.$router.push("/panier");
+    go_to_cart() {
+      this.$router.push("/mon_panier");
     },
-    Sign_in() {
+    go_to_sign_in() {
       this.$router.push("/identifiez_vous");
     },
-    Sign_up() {
+    go_to_sign_up() {
       this.$router.push("/inscrivez_vous");
     },
   },

@@ -8,32 +8,32 @@ Vue.use(VueAxios, axios);
 
 export default new Vuex.Store({
   state: {
-    produits: [],
-    panier: 0,
-    produits_panier: []
+    products: [],
+    cart_count: 0,
+    cart: []
   },
   mutations: {
-    SET_Produits(state, produits) {
-      state.produits = produits;
+    SET_Products(state, products) {
+      state.products = products;
     },
-    UPDATE_Produits(state, produits) {
-      state.produits.push(produits);
+    UPDATE_Products(state, products) {
+      state.products.push(products);
     }
   },
   actions: {
-    loadProduits({ commit }, chemin) {
+    loadProducts({ commit }, road) {
       axios
-        .get(`https://jsonplaceholder.typicode.com/${chemin}`, {
+        .get(`https://jsonplaceholder.typicode.com/${road}`, {
           headers: {
             "Content-type": "application/json; charset=UTF-8"
           }
         })
         .then(response => {
-          commit("SET_Produits", response.data);
+          commit("SET_Products", response.data);
         });
     },
 
-    changeProduits() {
+    changeProducts() {
       axios
         .post("https://jsonplaceholder.typicode.com/posts", {
           body: JSON.stringify({
@@ -47,7 +47,7 @@ export default new Vuex.Store({
         })
         .then(response => {
           console.log(response);
-          this.commit("UPDATE_Produits", response.data);
+          this.commit("UPDATE_Products", response.data);
         });
     }
   },

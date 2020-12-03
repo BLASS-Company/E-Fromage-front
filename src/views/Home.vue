@@ -3,22 +3,22 @@
     <div class="selection">
       <h3>Notre Selection</h3>
       <p>Découvrez nos meilleurs fromages</p>
-      <button @click="selection()">Voir plus</button>
-      <img src="../assets/selection.jpg" alt="selection" />
+      <button @click="go_to_select()">Voir plus</button>
+      <img src="../assets/selection.jpg" alt="image de notre selection" />
     </div>
     <div class="offer">
       <h3>Nos plateaux de fromages</h3>
       <p>Appréciez nos fromages à plusieurs</p>
-      <button @click="plateau()">Voir plus</button>
-      <img src="../assets/plateau.jpg" alt="plateau" />
+      <button @click="go_to_plate()">Voir plus</button>
+      <img src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
     </div>
     <div class="present">
       <h3>Nos idées cadeaux</h3>
       <p>Faites vous plaisir pendant les fêtes</p>
-      <button @click="cadeau()">Voir plus</button>
-      <img src="../assets/cadeau.jpg" alt="cadeau" />
+      <button @click="go_to_present()">Voir plus</button>
+      <img src="../assets/present.jpg" alt="image de nos idées cadeaux" />
     </div>
-    <div class="propos">
+    <div class="about">
       <h3>A propos des Pitech</h3>
       <p>
         Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec
@@ -28,9 +28,9 @@
         C'est pourquoi nous vous proposons de découvrir notre quotidien dans la
         ferme des Pitech.
       </p>
-      <button @click="propos()">Découvrez-nous</button>
+      <button @click="go_to_about()">Découvrez-nous</button>
     </div>
-    <div class="avis">
+    <div class="comment">
       <p>"C'est le meilleur formage que j'ai jamais goûté de toute ma vie</p>
       <p>Raphael D et Alexandre B ont commenté</p>
     </div>
@@ -41,19 +41,19 @@
 // @ is an alias to /src
 
 export default {
-  name: "Accueil",
+  name: "Home",
   methods: {
-    selection() {
-      this.$router.push("/boutique/selection");
+    go_to_select() {
+      this.$router.push("/boutique/notre_selection");
     },
-    plateau() {
-      this.$router.push("/boutique/plateau");
+    go_to_plate() {
+      this.$router.push("/boutique/nos_plateaux_fromages");
     },
-    cadeau() {
-      this.$router.push("/boutique/cadeau");
+    go_to_present() {
+      this.$router.push("/boutique/nos_idées_cadeaux");
     },
-    propos() {
-      this.$router.push("/a_propos");
+    go_to_about() {
+      this.$router.push("/a_propos_de_nous");
     }
   }
 };
