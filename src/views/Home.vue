@@ -38,6 +38,7 @@
       <p>"C'est le meilleur formage que j'ai jamais goûté de toute ma vie</p>
       <p>Raphael D et Alexandre B ont commenté</p>
     </div>
+    <button>JE TEST</button>
 </v-container>
 </template>
 
