@@ -41,7 +41,5 @@ export default {
 </script>
 
 <style>
-#v-tab{
- text-decoration: none;
-}
+
 </style>
