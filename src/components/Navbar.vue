@@ -5,7 +5,7 @@
     </v-row>
     <v-row align="center">
     <v-tab><router-link to="/">Accueil</router-link></v-tab>
-    <v-tab><router-link to="/boutique/posts">Nos Produits</router-link></v-tab>
+    <v-tab><router-link to="/boutique/produits">Nos Produits</router-link></v-tab>
     <v-tab><router-link to="/nous_contacter">Contact</router-link></v-tab>
     <v-tab><router-link to="/a_propos_de_nous">A Propos</router-link></v-tab>
     </v-row>

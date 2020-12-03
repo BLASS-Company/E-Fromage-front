@@ -23,7 +23,7 @@ export default new Vuex.Store({
   actions: {
     loadProducts({ commit }, road) {
       axios
-        .get(`https://jsonplaceholder.typicode.com/${road}`, {
+        .get(`https://arcane-ocean-14421.herokuapp.com/api/${road}`, {
           headers: {
             "Content-type": "application/json; charset=UTF-8"
           }
