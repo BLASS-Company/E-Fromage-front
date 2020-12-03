@@ -1,5 +1,5 @@
 <template>
-  <div>
+<v-container>
     <div class="selection">
       <h2>Notre Selection</h2>
       <p>Découvrez nos meilleurs fromages</p>
@@ -20,15 +20,21 @@
     </div>
     <div class="propos">
       <h2>A propos des Pitech</h2>
-      <p>Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec vous.</p>
-      <p>C'est pourquoi nous vous proposons de découvrir notre quotidien dans la ferme des Pitech.</p>
+      <p>
+        Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec
+        vous.
+      </p>
+      <p>
+        C'est pourquoi nous vous proposons de découvrir notre quotidien dans la
+        ferme des Pitech.
+      </p>
       <button @click="propos()">Découvrez-nous</button>
     </div>
     <div class="avis">
       <p>"C'est le meilleur formage que j'ai jamais goûté de toute ma vie</p>
       <p>Raphael D et Alexandre B ont commenté</p>
     </div>
-  </div>
+</v-container>
 </template>
 
 <script>
@@ -40,15 +46,15 @@ export default {
     selection() {
       this.$router.push("/boutique/selection");
     },
-     plateau() {
+    plateau() {
       this.$router.push("/boutique/plateau");
     },
-     cadeau() {
+    cadeau() {
       this.$router.push("/boutique/cadeau");
     },
     propos() {
       this.$router.push("/a_propos");
-    },
-  },
+    }
+  }
 };
 </script>

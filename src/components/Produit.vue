@@ -1,6 +1,9 @@
 <template>
   <article>
-    <img :src="image" alt="Désolé nous n'arrivons pas a afficher l'image de ce produit" />
+    <img
+      :src="image"
+      alt="Désolé nous n'arrivons pas a afficher l'image de ce produit"
+    />
     <p>{{ produit.title }}</p>
     <p>{{ produit.body }}</p>
     <!-- <p>{{produit.name}}</p>
@@ -21,15 +24,15 @@ export default {
       description: String,
       prix: String,
       image: String,
-      stock: Number,
-    },
+      stock: Number
+    }
   },
   methods: {
     add_cart() {
       this.$store.state.panier += 1;
       this.$store.state.produits_panier.push(this.produit);
-    },
-  },
+    }
+  }
 };
 </script>
 

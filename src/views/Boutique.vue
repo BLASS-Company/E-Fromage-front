@@ -1,11 +1,11 @@
 <template>
-  <div id="boutique">
+  <v-container>
     <Produit
       v-for="produit in produits"
       :key="produit.name"
       v-bind:produit="produit"
     />
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -19,9 +19,9 @@ export default {
   },
   computed: {
     produits() {
-      return this.$store.state.produits
+      return this.$store.state.produits;
     }
-  },
+  }
 };
 </script>
 

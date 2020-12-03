@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <ul>
       <li v-for="(produit, index) in vue_panier" :key="index">
         <p>{{ produit.title }}</p>
@@ -10,7 +10,7 @@
         <p>{{produit.stock}}</p> -->
       </li>
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -19,8 +19,8 @@ export default {
   computed: {
     vue_panier() {
       return this.$store.state.produits_panier;
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,16 +1,15 @@
 <template>
-  <form action="">
+  <v-container>
+    <form action="">
       pareil
-  </form>
+    </form>
+  </v-container>
 </template>
 
 <script>
 export default {
-    name: "Sign_in",
-
-}
+  name: "Sign_in",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

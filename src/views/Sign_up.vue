@@ -1,16 +1,15 @@
 <template>
-  <form action="">
+  <v-container>
+    <form action="">
       a voir
-  </form>
+    </form>
+  </v-container>
 </template>
 
 <script>
 export default {
-    name: "Sign_up",
-
-}
+  name: "Sign_up",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
