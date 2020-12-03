@@ -1,25 +1,25 @@
 <template>
 <v-container>
     <div class="selection">
-      <h2>Notre Selection</h2>
+      <h3>Notre Selection</h3>
       <p>Découvrez nos meilleurs fromages</p>
       <button @click="selection()">Voir plus</button>
       <img src="../assets/selection.jpg" alt="selection" />
     </div>
     <div class="offer">
-      <h2>Nos plateaux de fromages</h2>
+      <h3>Nos plateaux de fromages</h3>
       <p>Appréciez nos fromages à plusieurs</p>
       <button @click="plateau()">Voir plus</button>
       <img src="../assets/plateau.jpg" alt="plateau" />
     </div>
     <div class="present">
-      <h2>Nos idées cadeaux</h2>
+      <h3>Nos idées cadeaux</h3>
       <p>Faites vous plaisir pendant les fêtes</p>
       <button @click="cadeau()">Voir plus</button>
       <img src="../assets/cadeau.jpg" alt="cadeau" />
     </div>
     <div class="propos">
-      <h2>A propos des Pitech</h2>
+      <h3>A propos des Pitech</h3>
       <p>
         Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec
         vous.

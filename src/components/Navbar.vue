@@ -1,15 +1,16 @@
 <template>
   <v-app-bar>
-    <img src="" alt="Logo la ferme d'epitech" />
-    <router-link to="/">Accueil</router-link> | <router-link to="/boutique/posts">Nos Produits</router-link> |
-    <router-link to="/contact">Contact</router-link> |
-    <router-link to="/a_propos">A Propos</router-link>
-    <div>
-      <img src="" alt="petit panier" @click="Panier()" />
+    <h2>LA FERME DES PITECH</h2>
+    <v-tab><router-link to="/">Accueil</router-link></v-tab>
+    <v-tab><router-link to="/boutique/posts">Nos Produits</router-link></v-tab>
+    <v-tab><router-link to="/contact">Contact</router-link></v-tab>
+    <v-tab><router-link to="/a_propos">A Propos</router-link></v-tab>
+    <v-tab>
+      <v-icon @click="Panier()">fa-shopping-cart</v-icon>
       {{ paniercount }}
-    </div>
-    <button @click="Sign_in()">Identifiez-vous</button>
-    <button @click="Sign_up()">Inscrivez-vous</button>
+   </v-tab>
+    <v-tab @click="Sign_in()">Identifiez-vous</v-tab>
+    <v-tab @click="Sign_up()">Inscrivez-vous</v-tab>
   </v-app-bar>
 </template>
 
@@ -35,4 +36,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#v-tab{
+ text-decoration: none;
+}
+</style>
