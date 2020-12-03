@@ -4,38 +4,23 @@
     <div class="selection">
       <h3>Notre Selection</h3>
       <p>Découvrez nos meilleurs fromages</p>
-<<<<<<< Updated upstream:src/views/Home.vue
-      <button @click="go_to_select()">Voir plus</button>
-      <img src="../assets/selection.jpg" alt="image de notre selection" />
-=======
       <v-btn @click="selection()">Voir plus</v-btn>
       <v-col>
-      <v-img max-height="500" max-width="500" src="../assets/selection.jpg" alt="selection" />
+      <v-img max-height="500" max-width="500" src="../assets/selection.jpg" alt="image de notre selection" />
       </v-col>
->>>>>>> Stashed changes:src/views/Accueil.vue
     </div>
   </v-row>
     <div class="offer">
       <h3>Nos plateaux de fromages</h3>
       <p>Appréciez nos fromages à plusieurs</p>
-<<<<<<< Updated upstream:src/views/Home.vue
-      <button @click="go_to_plate()">Voir plus</button>
-      <img src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
-=======
       <v-btn @click="plateau()">Voir plus</v-btn>
-      <v-img max-height="500" max-width="500" src="../assets/plateau.jpg" alt="plateau" />
->>>>>>> Stashed changes:src/views/Accueil.vue
+      <v-img max-height="500" max-width="500" src="../assets/plateau.jpg" alt="image de nos plateaux fromages" />
     </div>
     <div class="present">
       <h3>Nos idées cadeaux</h3>
       <p>Faites vous plaisir pendant les fêtes</p>
-<<<<<<< Updated upstream:src/views/Home.vue
-      <button @click="go_to_present()">Voir plus</button>
-      <img src="../assets/present.jpg" alt="image de nos idées cadeaux" />
-=======
       <v-btn @click="cadeau()">Voir plus</v-btn>
-      <v-img max-height="500" max-width="500" src="../assets/cadeau.jpg" alt="cadeau" />
->>>>>>> Stashed changes:src/views/Accueil.vue
+      <v-img max-height="500" max-width="500" src="../assets/cadeau.jpg" alt="image de nos idées cadeaux" />
     </div>
     <div class="about">
       <h3>A propos des Pitech</h3>
