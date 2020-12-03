@@ -20,11 +20,11 @@ export default {
   },
   computed: {
     produits() {
-      return this.$store.state.produits
+      return this.$store.state.produits;
     }
   },
   methods: {
-    newproduits(){
+    newproduits() {
       this.$store.dispatch("changeProduits");
     }
   }
