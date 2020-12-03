@@ -10,6 +10,7 @@
         <v-img height="500" src="../assets/selection.jpg" alt="image de notre selection" />
       </v-col>
     </v-card>
+    <v-spacer></v-spacer>
     <v-card id="plate" height="500" class="d-flex">
       <v-col align-self="center" cols="6">
         <v-img height="500" src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
@@ -19,6 +20,7 @@
         <v-card-text>Appréciez nos fromages à plusieurs</v-card-text>
         <v-btn @click="go_to_plate()">Voir plus</v-btn>
       </v-col>
+      <v-spacer></v-spacer>
     </v-card>
     <v-card id="present" height="500" class="d-flex">
       <v-col cols="6" align-self="center">
