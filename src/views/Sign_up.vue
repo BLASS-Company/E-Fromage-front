@@ -12,18 +12,19 @@
           </v-card-text>
           <v-card-text>
             <v-form>
-              <v-text-field v-model="email" type="email" label="Adresse électronique" prepend-icon="mdi-email" />
-              {{ errormail }}
+              <v-text-field v-model="email" :rules="emailRules" type="email" label="Adresse électronique" prepend-icon="mdi-email" />
+              {{ errormail }} {{ errorEmailRules }}
             </v-form>
           </v-card-text>
           <v-card-text>
             <v-form>
               <v-text-field
                 :type="showPassword ? 'text' : 'password'"
+                :rules="passwordRules"
                 v-model="password"
                 label="Mot de passe"
                 prepend-icon="mdi-lock"
-                :append-icon="showPassword ? 'mdi-eye': 'mdi-eye-off'"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                 @click:append="showPassword = !showPassword"
               />
               {{ errorpassword }}
@@ -50,14 +51,17 @@ export default {
       errormail: "",
       errorpassword: "",
       showPassword: false,
+      emailRules:[(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
+      passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
+      errorEmailRules: "",
     };
   },
   methods: {
     submitForm() {
       if (this.username === null || this.username === "") {
         this.errorusername = "Merci de saisir un nom d'utilisateur";
-      } else if (this.email === null || this.email === "") {
-        this.errormail = "Veuillez saisir une adresse mail valide";
+      } else if (this.email === null || this.email === "" ) {
+        this.errormail = "Veuillez saisir une adresse mail";
       } else if (this.password === null || this.password === "" || this.password.length < 6) {
         this.errorpassword = "Merci de saisir un mot de passe avec plus de 6 caractères";
       } else {
