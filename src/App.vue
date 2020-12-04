@@ -1,8 +1,8 @@
 <template>
   <v-app>
-      <Navbar />
-      <router-view></router-view>
-      <Footer/>
+    <Navbar />
+    <router-view></router-view>
+    <Footer />
   </v-app>
 </template>
 
@@ -15,7 +15,7 @@ export default {
 
   components: {
     Navbar,
-    Footer
+    Footer,
   },
 
   data: () => ({
