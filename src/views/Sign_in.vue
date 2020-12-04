@@ -1,5 +1,4 @@
 <template>
-  <v-main>
     <v-container>
       <v-card>
         <form @submit.prevent="checkform()">
@@ -18,7 +17,6 @@
         </form>
       </v-card>
     </v-container>
-  </v-main>
 </template>
 
 <script>

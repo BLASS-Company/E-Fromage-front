@@ -8,14 +8,14 @@
           <v-btn @click="go_to_select()">Voir plus</v-btn>
         </v-col>
         <v-col align-self="center" cols="6">
-          <v-img src="../assets/selection.jpg" alt="image de notre selection" />
+          <v-img  src="../assets/selection.jpg" alt="image de notre selection" />
         </v-col>
       </v-card>
     </v-container>
     <v-container>
       <v-card id="plate" height="500" class="d-flex">
         <v-col align-self="center" cols="6">
-          <v-img max-height="500" src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
+          <v-img max-height="500"  src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
         </v-col>
         <v-col cols="6" align-self="center">
           <v-card-title>Nos plateaux de fromages</v-card-title>
@@ -37,8 +37,8 @@
       </v-card>
     </v-container>
     <v-container>
-      <v-card id="about" height="300">
-        <v-card-title justify-content="center">A propos des Pitech</v-card-title>
+      <v-card  id="about" height="300">
+        <v-card-title justify-content="center" >A propos des Pitech</v-card-title>
         <v-card-text> Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec vous.</v-card-text>
         <v-card-text> C'est pourquoi nous vous proposons de découvrir notre quotidien dans la ferme des Pitech. </v-card-text>
         <v-btn @click="go_to_about()">Découvrez-nous</v-btn>
