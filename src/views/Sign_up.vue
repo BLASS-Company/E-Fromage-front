@@ -58,7 +58,7 @@ export default {
     submitForm() {
       if (this.username === null || this.username === "") {
         this.errorusername = "Merci de saisir un nom d'utilisateur";
-      } else if (this.email === null || this.email === "" || this.email.indexOf("@") == false) {
+      } else if (this.email === null || this.email === "") {
         this.errormail = "Veuillez saisir une adresse mail";
       } else if (this.password === null || this.password === "" || this.password.length < 6) {
         this.errorpassword = "Merci de saisir un mot de passe avec plus de 6 caractères";

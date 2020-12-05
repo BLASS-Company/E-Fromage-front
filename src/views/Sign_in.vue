@@ -1,22 +1,30 @@
 <template>
-    <v-container>
-      <v-card>
-        <form @submit.prevent="checkform()">
-          <v-card-title>Connectez-vous</v-card-title>
-          <v-form>
-            <v-text-field v-model="email" label="Entrez votre adresse électronique" prepend-icon="mdi-email" />
-            <span v-if="mailerror != ''">{{ mailerror }}</span>
-            <br v-if="mailerror != ''" />
-            <v-text-field v-model="password" type="password" label="Entrez votre mot de passe" prepend-icon="mdi-lock" append-icon="mdi-eye-off" />
-            <span v-if="passerror != ''">{{ passerror }}</span>
-            <br v-if="passerror != ''" />
-          </v-form>
-          <v-card-actions>
-            <v-btn type="submit" color="info">Me connecter</v-btn>
-          </v-card-actions>
-        </form>
-      </v-card>
-    </v-container>
+  <v-container>
+    <v-card>
+      <form @submit.prevent="checkform()">
+        <v-card-title>Connectez-vous</v-card-title>
+        <v-form>
+          <v-text-field v-model="email" :rules="emailRules" label="Entrez votre adresse électronique" prepend-icon="mdi-email" />
+          <span v-if="mailerror != ''">{{ mailerror }}</span>
+          <br v-if="mailerror != ''" />
+          <v-text-field
+            :type="showPassword ? 'text' : 'password'"
+            :rules="passwordRules"
+            v-model="password"
+            label="Entrez votre mot de passe"
+            prepend-icon="mdi-lock"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+          />
+          <span v-if="passerror != ''">{{ passerror }}</span>
+          <br v-if="passerror != ''" />
+        </v-form>
+        <v-card-actions>
+          <v-btn type="submit" color="info">Me connecter</v-btn>
+        </v-card-actions>
+      </form>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -28,6 +36,10 @@ export default {
       password: "",
       mailerror: "",
       passerror: "",
+      showPassword: false,
+      emailRules:[(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
+      passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
+      errorEmailRules: "",
     };
   },
   methods: {
