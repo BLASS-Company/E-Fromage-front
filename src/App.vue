@@ -2,7 +2,9 @@
   <v-app>
     <NavigationMobile v-if="mobileView" />
     <Navbar v-if="!mobileView" />
+    <v-main>
     <router-view></router-view>
+    </v-main>
     <Footer />
   </v-app>
 </template>
@@ -23,7 +25,8 @@ export default {
 
   data: () => ({
     mobileView: true,
-    showNav: false,
+    drawer: false,
+    group: null,
   }),
 
   methods: {
@@ -35,5 +38,7 @@ export default {
   created() {
     this.handleView();
   },
+
+ 
 };
 </script>
