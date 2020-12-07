@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-row>
       <v-col v-for="(product, index) in cart_vue" :key="index" cols="12" sm="4">
         <v-card>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Cart",
   methods: {

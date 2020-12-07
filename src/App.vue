@@ -3,7 +3,7 @@
     <NavigationMobile v-if="mobileView" />
     <Navbar v-if="!mobileView" />
     <v-main>
-    <router-view></router-view>
+      <router-view></router-view>
     </v-main>
     <Footer />
   </v-app>
@@ -24,7 +24,7 @@ export default {
   },
 
   data: () => ({
-    mobileView: '',
+    mobileView: "",
   }),
 
   methods: {
@@ -34,8 +34,7 @@ export default {
   },
   created() {
     this.handleView();
+    window.addEventListener("resize", this.handleView);
   },
-
- 
 };
 </script>

@@ -3,10 +3,10 @@
     <v-app-bar>
       <v-toolbar-title>LA FERME DES PITECH</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn small><router-link to="/">Accueil</router-link></v-btn>
-      <v-btn small><router-link to="/boutique/posts">Nos Produits</router-link></v-btn>
-      <v-btn small><router-link to="/nous_contacter">Contact</router-link></v-btn>
-      <v-btn small><router-link to="/a_propos_de_nous">A Propos</router-link></v-btn>
+      <v-tab @click="go_to_home()">Accueil</v-tab>
+      <v-tab @click="go_to_shop()">Nos produits</v-tab>
+      <v-tab @click="go_to_contact()">Contact</v-tab>
+      <v-tab @click="go_to_about()">A propos</v-tab>
       <v-btn small>
       <v-spacer></v-spacer>
         <v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>
@@ -37,6 +37,18 @@ export default {
     },
     go_to_sign_up() {
       this.$router.push("/inscrivez_vous");
+    },
+      go_to_home() {
+      this.$router.push("/");
+    },
+    go_to_shop() {
+      this.$router.push("/boutique/posts");
+    },
+    go_to_contact() {
+      this.$router.push("/nous_contacter");
+    },
+    go_to_about() {
+      this.$router.push("/a_propos_de_nous");
     },
   },
 };

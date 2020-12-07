@@ -68,7 +68,6 @@ export default {
           email: this.email,
           password: this.password,
         };
-        alert("Votre inscription est enregistrée");
         this.$store.dispatch("signup", form);
         this.$router.push("/");
       }
