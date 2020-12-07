@@ -37,15 +37,20 @@ export default {
       mailerror: "",
       passerror: "",
       showPassword: false,
-      emailRules:[(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
+      emailRules: [(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
       passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
-      errorEmailRules: "",
     };
   },
   methods: {
+    validEmail(email) {
+      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
     checkform() {
       if (this.email == null || this.email == "") {
-        this.mailerror = "Veuillez saisir une adresse électronique valide";
+        this.mailerror = "Veuillez saisir une adresse électronique";
+      } else if (!this.validEmail(this.email)) {
+        this.errormail = " Merci de saisir une adresse mail valide";
       } else if (this.password == null || this.password == "" || this.password.length < 6) {
         this.passerror = "Le mot de passe doit contenir au miimum 6 charactères";
       } else {

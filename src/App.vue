@@ -5,6 +5,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <Scroll/>
     <Footer />
   </v-app>
 </template>
@@ -13,6 +14,7 @@
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import NavigationMobile from "@/components/NavigationMobile.vue";
+import Scroll from './components/Scroll.vue';
 
 export default {
   name: "App",
@@ -21,6 +23,7 @@ export default {
     Navbar,
     Footer,
     NavigationMobile,
+    Scroll,
   },
 
   data: () => ({
