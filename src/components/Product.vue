@@ -1,17 +1,25 @@
 <template>
-  <article>
-    <img
-      :src="image"
-      alt="image du produit"
-    />
-    <p>{{ product.title }}</p>
-    <p>{{ product.body }}</p>
-    <!-- <p>{{product.name}}</p>
+  <v-container class="grey lighten-5">
+    <v-row>
+       <v-col
+        v-for="n in 3"
+        :key="n"
+        cols="12"
+        sm="4"
+      >
+    <v-card>
+      <v-img alt="image du produit" />
+      <v-card-title>{{ product.title }}</v-card-title>
+      <v-card-text>{{ product.body }}</v-card-text>
+      <!-- <p>{{product.name}}</p>
         <p>{{product.description}}</p>
         <p>{{product.price}}</p>
         <p>{{product.stock}}</p> -->
-    <button @click="add_cart()">Ajouter au panier</button>
-  </article>
+      <v-btn @click="add_cart()">Ajouter au panier</v-btn>
+    </v-card>
+     </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -24,16 +32,16 @@ export default {
       description: String,
       price: Number,
       image: String,
-      stock: Number
-    }
+      stock: Number,
+    },
   },
   methods: {
     add_cart() {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(this.product);
-      console.log(this.$store.state.cart)
-    }
-  }
+      console.log(this.$store.state.cart);
+    },
+  },
 };
 </script>
 
