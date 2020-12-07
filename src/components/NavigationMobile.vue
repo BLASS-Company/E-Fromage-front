@@ -1,28 +1,22 @@
 <template>
-  <v-card class="overflow-hidden">
+  <v-card>
     <v-app-bar prominent>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>LA FERME DES PITECH</v-toolbar-title>
+      <v-toolbar-title> LA FERME DES PITECH</v-toolbar-title>
+      <v-btn icon><v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>{{ cartcount }}</v-btn>
       <v-btn icon><v-icon @click="go_to_sign_in()">fa-sign-in-alt</v-icon></v-btn>
       <v-btn icon><v-icon @click="go_to_sign_up()">fa-user-plus</v-icon></v-btn>
-      <v-navigation-drawer v-model="drawer" absolute height="500px">
-        <v-list>
-          <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-            <v-tab>Accueil</v-tab>
-            <v-tab>Nos produits</v-tab>
-            <v-tab>Contact</v-tab>
-            <v-tab>A propos</v-tab>
-          </v-list-item-group>
-        </v-list>
-        <!-- <v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>
-              {{ cartcount }}
-            
-           
-            <v-btn small @click="go_to_sign_in()">Identifiez-vous</v-btn>
-            <v-btn small @click="go_to_sign_up()">Inscrivez-vous</v-btn>
-          -->
-      </v-navigation-drawer>
     </v-app-bar>
+    <v-navigation-drawer v-model="drawer" absolute>
+      <v-list>
+        <v-list-item-group>
+          <v-tab @click="go_to_home()">Accueil</v-tab>
+          <v-tab @click="go_to_shop()">Nos produits</v-tab>
+          <v-tab @click="go_to_contact()">Contact</v-tab>
+          <v-tab @click="go_to_about()">A propos</v-tab>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
   </v-card>
 </template>
 
@@ -31,7 +25,6 @@ export default {
   name: "Navbar",
   data: () => ({
     drawer: false,
-    group: null,
   }),
   computed: {
     cartcount() {
@@ -47,6 +40,18 @@ export default {
     },
     go_to_sign_up() {
       this.$router.push("/inscrivez_vous");
+    },
+    go_to_home() {
+      this.$router.push("/");
+    },
+    go_to_shop() {
+      this.$router.push("/boutique/posts");
+    },
+    go_to_contact() {
+      this.$router.push("/nous_contacter");
+    },
+    go_to_about() {
+      this.$router.push("/a_propos_de_nous");
     },
   },
   watch: {

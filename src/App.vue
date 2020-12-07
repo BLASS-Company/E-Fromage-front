@@ -24,17 +24,14 @@ export default {
   },
 
   data: () => ({
-    mobileView: true,
-    drawer: false,
-    group: null,
+    mobileView: '',
   }),
 
   methods: {
     handleView() {
-      this.mobileView = window.innerWidth <= 600;
+      this.mobileView = window.innerWidth <= 990;
     },
   },
-
   created() {
     this.handleView();
   },
