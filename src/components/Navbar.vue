@@ -8,7 +8,7 @@
       <v-tab @click="go_to_contact()">Contact</v-tab>
       <v-tab @click="go_to_about()">A propos</v-tab>
       <v-btn small>
-      <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
         <v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>
         {{ cartcount }}
       </v-btn>
@@ -16,8 +16,7 @@
       <v-btn small @click="go_to_sign_in()">Identifiez-vous</v-btn>
       <v-btn small @click="go_to_sign_up()">Inscrivez-vous</v-btn>
     </v-app-bar>
-    </v-card>
- 
+  </v-card>
 </template>
 
 <script>
@@ -38,7 +37,7 @@ export default {
     go_to_sign_up() {
       this.$router.push("/inscrivez_vous");
     },
-      go_to_home() {
+    go_to_home() {
       this.$router.push("/");
     },
     go_to_shop() {

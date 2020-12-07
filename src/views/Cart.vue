@@ -13,14 +13,12 @@
 </template>
 
 <script>
-
 export default {
   name: "Cart",
   methods: {
     delete_cart() {
       this.$store.state.cart_count -= 1;
       this.$store.state.cart.pop(this.product);
-      console.log(this.$store.state.cart);
     },
   },
   computed: {
