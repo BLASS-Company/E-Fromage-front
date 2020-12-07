@@ -1,6 +1,7 @@
 <template>
   <v-card>
     <v-app-bar>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>LA FERME DES PITECH</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn small><router-link to="/">Accueil</router-link></v-btn>

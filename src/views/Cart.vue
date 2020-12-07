@@ -5,7 +5,7 @@
         <v-card>
           <v-card-title>{{ product.title }}</v-card-title>
           <v-card-text>{{ product.body }}</v-card-text>
-          <v-btn @click="delete_cart()">Supprimer</v-btn>
+          <v-btn color="error" @click="delete_cart()">Supprimer</v-btn>
         </v-card>
       </v-col>
     </v-row>

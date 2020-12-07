@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <Navbar />
+    <NavigationMobile v-if="mobileView" />
+    <Navbar v-if="!mobileView" />
     <router-view></router-view>
     <Footer />
   </v-app>
@@ -9,6 +10,7 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import NavigationMobile from "@/components/NavigationMobile.vue";
 
 export default {
   name: "App",
@@ -16,10 +18,22 @@ export default {
   components: {
     Navbar,
     Footer,
+    NavigationMobile,
   },
 
   data: () => ({
-    //
+    mobileView: true,
+    showNav: false,
   }),
+
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 600;
+    },
+  },
+
+  created() {
+    this.handleView();
+  },
 };
 </script>
