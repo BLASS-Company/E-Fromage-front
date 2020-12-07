@@ -15,7 +15,7 @@
         <p>{{product.description}}</p>
         <p>{{product.price}}</p>
         <p>{{product.stock}}</p> -->
-      <v-btn @click="add_cart()">Ajouter au panier</v-btn>
+      <v-btn color="info" @click="add_cart()">Ajouter au panier</v-btn>
     </v-card>
      </v-col>
     </v-row>

@@ -8,14 +8,14 @@
           <v-btn @click="go_to_select()">Voir plus</v-btn>
         </v-col>
         <v-col align-self="center" cols="6">
-          <v-img  src="../assets/selection.jpg" alt="image de notre selection" />
+          <v-img aspect-ratio="2" src="../assets/selection.jpg" alt="image de notre selection" />
         </v-col>
       </v-card>
     </v-container>
     <v-container>
       <v-card id="plate" height="500" class="d-flex">
         <v-col align-self="center" cols="6">
-          <v-img max-height="500"  src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
+          <v-img  aspect-ratio="2" src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
         </v-col>
         <v-col cols="6" align-self="center">
           <v-card-title>Nos plateaux de fromages</v-card-title>
@@ -32,7 +32,7 @@
           <v-btn @click="go_to_present()">Voir plus</v-btn>
         </v-col>
         <v-col align-self="center" cols="6">
-          <v-img src="../assets/present.jpg" alt="image de nos idées cadeaux" />
+          <v-img aspect-ratio="2" src="../assets/present.jpg" alt="image de nos idées cadeaux" />
         </v-col>
       </v-card>
     </v-container>
