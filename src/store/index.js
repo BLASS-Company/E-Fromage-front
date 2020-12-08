@@ -30,12 +30,14 @@ export default new Vuex.Store({
   actions: {
     loadProducts({ commit }, road) {
       axios
-        .get(`https://jsonplaceholder.typicode.com/${road}`, {
+        .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
           headers: {
-            "Content-type": "application/json; charset=UTF-8",
+            "Content-type": "application/json",
           },
         })
         .then((response) => {
+          // console.log(response)
+          // console.log(commit)
           commit("SET_Products", response.data);
         })
         .catch(error => {

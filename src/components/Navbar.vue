@@ -41,7 +41,7 @@ export default {
       this.$router.push("/");
     },
     go_to_shop() {
-      this.$router.push("/boutique/posts");
+      this.$router.push("/boutique/nos_produits");
     },
     go_to_contact() {
       this.$router.push("/nous_contacter");
