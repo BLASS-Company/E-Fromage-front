@@ -17,7 +17,6 @@
             @mouseenter="showAlert = !showAlert"
             @mouseleave="showAlert"
             @click:append="showPassword = !showPassword"
-            
           />
           <v-alert v-if="showAlert == true" type="info">
             Vous pouvez cliquer sur l'oeil afin de consulter votre mot de passe
@@ -57,7 +56,7 @@ export default {
       if (this.email == null || this.email == "") {
         this.mailerror = "Veuillez saisir une adresse électronique";
       } else if (!this.validEmail(this.email)) {
-        this.errormail = " Merci de saisir une adresse mail valide";
+        this.errormail = "Merci de saisir une adresse mail valide";
       } else if (this.password == null || this.password == "" || this.password.length < 6) {
         this.passerror = "Le mot de passe doit contenir au miimum 6 charactères";
       } else {

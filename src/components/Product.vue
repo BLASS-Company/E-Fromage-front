@@ -11,6 +11,7 @@
       <v-img alt="image du produit" />
       <v-card-title>{{ product.title }}</v-card-title>
       <v-card-text>{{ product.body }}</v-card-text>
+      <v-card-text>{{ product.price }}</v-card-text>
       <v-btn color="info" @click="add_cart()">Ajouter au panier</v-btn>
     </v-card>
      </v-col>
