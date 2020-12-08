@@ -5,10 +5,14 @@
         <v-card>
           <v-card-title>{{ product.title }}</v-card-title>
           <v-card-text>{{ product.body }}</v-card-text>
+          <v-card-text>{{ product.price }}</v-card-text>
           <v-btn color="error" @click="delete_cart()">Supprimer</v-btn>
         </v-card>
       </v-col>
     </v-row>
+    <v-card>
+      <v-card-title>Total : {{ totalPrice }} €</v-card-title>
+    </v-card>
   </v-container>
 </template>
 
@@ -24,6 +28,12 @@ export default {
   computed: {
     cart_vue() {
       return this.$store.state.cart;
+    },
+    totalPrice() {
+      return this.$store.state.cart.reduce((acc, v) => {
+        acc += v.price;
+        return acc;
+      }, 0);
     },
   },
 };
