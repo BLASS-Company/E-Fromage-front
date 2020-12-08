@@ -28,6 +28,19 @@
             />
             {{ errorpassword }}
           </v-form>
+            <div class="text-center d-flex align-center">
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-icon
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >mdi-eye-off</v-icon>
+      </template>
+      <span>Vous pouvez consulter le mot de passe en cliquant sur l'icône</span>
+    </v-tooltip>
+  </div>
         </v-card-text>
         <v-card-actions>
           <v-btn type="submit" color="success">S'inscrire</v-btn>

@@ -14,8 +14,14 @@
             label="Entrez votre mot de passe"
             prepend-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @mouseenter="showAlert = !showAlert"
+            @mouseleave="showAlert"
             @click:append="showPassword = !showPassword"
+            
           />
+          <v-alert v-if="showAlert == true" type="info">
+            Vous pouvez cliquer sur l'oeil afin de consulter votre mot de passe
+          </v-alert>
           <span v-if="passerror != ''">{{ passerror }}</span>
           <br v-if="passerror != ''" />
         </v-form>
@@ -36,6 +42,7 @@ export default {
       password: "",
       mailerror: "",
       passerror: "",
+      showAlert: false,
       showPassword: false,
       emailRules: [(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
       passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
