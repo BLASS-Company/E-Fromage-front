@@ -11,6 +11,7 @@ export default new Vuex.Store({
     products: [],
     cart_count: 0,
     cart: [],
+    profil: "",
   },
   mutations: {
     SET_Products(state, products) {
@@ -36,6 +37,10 @@ export default new Vuex.Store({
         })
         .then((response) => {
           commit("SET_Products", response.data);
+        })
+        .catch(error => {
+          console.log(error);
+
         });
     },
 
