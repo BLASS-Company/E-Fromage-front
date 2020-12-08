@@ -24,23 +24,23 @@
               label="Mot de passe"
               prepend-icon="mdi-lock"
               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-              @click:append="showPassword = !showPassword"
-            />
-            {{ errorpassword }}
-          </v-form>
-            <div class="text-center d-flex align-center">
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-icon
+            >
+                     <template v-slot:append>
+                <v-tooltip bottom>
+      <template v-slot:activator="{ on }">
+            <v-icon
           color="primary"
           dark
-          v-bind="attrs"
           v-on="on"
-        >mdi-eye-off</v-icon>
+          @click="test()"
+        >{{essai}}</v-icon>
       </template>
-      <span>Vous pouvez consulter le mot de passe en cliquant sur l'icône</span>
+      <span>Attention en cliquant sur cette icone votre mot de passe sera visible</span>
     </v-tooltip>
-  </div>
+    </template>
+            </v-text-field>
+            {{ errorpassword }}
+          </v-form>
         </v-card-text>
         <v-card-actions>
           <v-btn type="submit" color="success">S'inscrire</v-btn>
@@ -61,12 +61,23 @@ export default {
       errorusername: "",
       errormail: "",
       errorpassword: "",
+      essai: 'mdi-eye-off',
       showPassword: false,
       emailRules: [(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
       passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
     };
   },
   methods: {
+    test(){
+      if (this.showPassword == false && this.essai == 'mdi-eye-off') {
+        this.showPassword = true
+        this.essai = 'mdi-eye'
+      }
+      else {
+        this.showPassword = false
+        this.essai = 'mdi-eye-off'
+      }
+    },
     validEmail(email) {
       let mail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return mail.test(email);
@@ -77,8 +88,6 @@ export default {
         this.errorusername = "Merci de saisir un nom d'utilisateur";
       } else if (!this.validEmail(this.email)) {
         this.errormail = " Merci de saisir une adresse mail valide";
-      } else if (this.email === null || this.email === "") {
-        this.errormail = "Veuillez saisir une adresse mail";
       } else if (this.password === null || this.password === "" || this.password.length < 6) {
         this.errorpassword = "Merci de saisir un mot de passe avec plus de 6 caractères";
       } else {
