@@ -30,11 +30,7 @@ export default new Vuex.Store({
   actions: {
     loadProducts({ commit }, road) {
       axios
-<<<<<<< HEAD
-        .get(`https://arcane-ocean-14421.herokuapp.com/api/${road}`, {
-=======
         .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
->>>>>>> develop
           headers: {
             "Content-type": "application/json",
           },
