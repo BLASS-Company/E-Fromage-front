@@ -30,6 +30,10 @@ export default new Vuex.Store({
   actions: {
     loadProducts({ commit }, road) {
       axios
+      //route en get: .env/products || product/{id} || products_category/{id} || categories || category/{id}
+      //route en post: .env/product || category || register || login
+      //route en put: .env/product/{id} || category/{id}
+      //route en delete: .env/product/{id} || category/{id} 
         .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
           headers: {
             "Content-type": "application/json",
