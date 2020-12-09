@@ -1,10 +1,6 @@
 <template>
   <v-container>
-    <Product
-      v-for="product in products"
-      :key="product.name"
-      v-bind:product="product"
-    />
+    <Product v-for="product in products" :key="product.name" v-bind:product="product" />
   </v-container>
 </template>
 
@@ -20,8 +16,8 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
-    }
-  }
+    },
+  },
 };
 </script>
 

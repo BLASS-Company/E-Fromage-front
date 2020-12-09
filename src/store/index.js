@@ -10,7 +10,8 @@ export default new Vuex.Store({
   state: {
     products: [],
     cart_count: 0,
-    cart: []
+    cart: [],
+    profil: "",
   },
   mutations: {
     SET_Products(state, products) {
@@ -18,18 +19,34 @@ export default new Vuex.Store({
     },
     UPDATE_Products(state, products) {
       state.products.push(products);
-    }
+    },
+    UPDATE_Profil(state, profil) {
+      state.profil = profil.email;
+    },
+    SET_Profil(state, profil) {
+      state.profil = profil.username;
+    },
   },
   actions: {
     loadProducts({ commit }, road) {
       axios
+<<<<<<< HEAD
         .get(`https://arcane-ocean-14421.herokuapp.com/api/${road}`, {
+=======
+        .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
+>>>>>>> develop
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
-          }
+            "Content-type": "application/json",
+          },
         })
-        .then(response => {
+        .then((response) => {
+          // console.log(response)
+          // console.log(commit)
           commit("SET_Products", response.data);
+        })
+        .catch(error => {
+          console.log(error);
+
         });
     },
 
@@ -39,17 +56,44 @@ export default new Vuex.Store({
           body: JSON.stringify({
             title: "foo",
             body: "bar",
-            userId: 1
+            userId: 1,
           }),
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
-          }
+            "Content-type": "application/json; charset=UTF-8",
+          },
         })
-        .then(response => {
+        .then((response) => {
           console.log(response);
           this.commit("UPDATE_Products", response.data);
         });
-    }
+    },
+    signin({ commit }, form) {
+      console.log(commit);
+      axios
+        .post("https://jsonplaceholder.typicode.com/posts", {
+          body: JSON.stringify(form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          commit("UPDATE_Profil", form);
+        });
+    },
+    signup({ commit }, form) {
+      axios
+        .post("https://jsonplaceholder.typicode.com/posts", {
+          body: JSON.stringify(form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          commit("SET_Profil", form);
+        });
+    },
   },
-  modules: {}
+  modules: {},
 });
