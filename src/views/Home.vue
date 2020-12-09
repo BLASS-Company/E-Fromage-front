@@ -5,7 +5,9 @@
         <v-col cols="6" align-self="center">
           <v-card-title class="justify-center">Notre Selection</v-card-title>
           <v-card-text>Découvrez nos meilleurs fromages</v-card-text>
-          <v-btn @click="goToSelect()">Voir plus</v-btn>
+          <router-link :to="{name:'Shop', params:{id:2}}" tag="v-btn">
+          <v-btn>Voir plus</v-btn>
+          </router-link>
         </v-col>
         <v-col align-self="center" cols="6">
           <v-img aspect-ratio="1.5" src="../assets/selection.jpg" alt="image de notre selection" />
@@ -20,7 +22,9 @@
         <v-col cols="6" align-self="center">
           <v-card-title class="justify-center">Nos plateaux de fromages</v-card-title>
           <v-card-text>Appréciez nos fromages à plusieurs</v-card-text>
-          <v-btn @click="goToPlate()">Voir plus</v-btn>
+          <router-link :to="{name:'Shop', params:{id:3}}" tag="v-btn">
+          <v-btn>Voir plus</v-btn>
+          </router-link>
         </v-col>
       </v-card>
     </v-container>
@@ -29,7 +33,9 @@
         <v-col cols="6" align-self="center">
           <v-card-title class="justify-center">Nos idées cadeaux</v-card-title>
           <v-card-text>Faites vous plaisir pendant les fêtes</v-card-text>
-          <v-btn @click="goToPresent()">Voir plus</v-btn>
+          <router-link :to="{name:'Shop', params:{id:1}}" tag="v-btn">
+          <v-btn>Voir plus</v-btn>
+          </router-link>
         </v-col>
         <v-col align-self="center" cols="6">
           <v-img aspect-ratio="1.5" src="../assets/present.jpg" alt="image de nos idées cadeaux" />
@@ -41,7 +47,9 @@
         <v-card-title class="justify-center">A propos des Pitech</v-card-title>
         <v-card-text> Avec plus de 1000 brebis. Nous avons beaucoup de moment à partager avec vous.</v-card-text>
         <v-card-text> C'est pourquoi nous vous proposons de découvrir notre quotidien dans la ferme des Pitech. </v-card-text>
-        <v-btn @click="goToAbout()">Découvrez-nous</v-btn>
+          <router-link to="/a_propos_de_nous" tag="v-btn">
+        <v-btn>Découvrez-nous</v-btn>
+          </router-link>
       </v-card>
     </v-container>
     <v-container>
@@ -57,20 +65,6 @@
 <script>
 export default {
   name: "Home",
-  methods: {
-    goToSelect() {
-      this.$router.push("/boutique/notre_selection");
-    },
-    goToPlate() {
-      this.$router.push("/boutique/nos_plateaux_fromages");
-    },
-    goToPresent() {
-      this.$router.push("/boutique/nos_idées_cadeaux");
-    },
-    goToAbout() {
-      this.$router.push("/a_propos_de_nous");
-    },
-  },
 };
 </script>
 <style></style>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <Product v-for="product in products" :key="product.name" v-bind:product="product" />
+    <Product v-for="product in products" :key="product.id" v-bind:product="product" />
   </v-container>
 </template>
 
@@ -10,8 +10,11 @@ import Product from "../components/Product.vue";
 export default {
   name: "Shop",
   components: { Product },
+  props: {
+    id: Number,
+  },
   mounted() {
-    this.$store.dispatch("loadProducts", this.$route.params.shop);
+    this.$store.dispatch("loadProducts", this.id);
   },
   computed: {
     products() {
@@ -21,5 +24,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

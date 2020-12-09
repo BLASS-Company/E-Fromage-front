@@ -28,12 +28,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    loadProducts({ commit }, road) {
+    //route en get: .env/products || product/{id} || products_category/{id} || categories || category/{id}
+    //route en post: .env/product || category || register || login
+    //route en put: .env/product/{id} || category/{id}
+    //route en delete: .env/product/{id} || category/{id}
+
+    loadProducts({ commit }, id) {
+      let road = `products_category/${id}`
+      if (id == undefined){
+        road = "products"
+      }
       axios
-      //route en get: .env/products || product/{id} || products_category/{id} || categories || category/{id}
-      //route en post: .env/product || category || register || login
-      //route en put: .env/product/{id} || category/{id}
-      //route en delete: .env/product/{id} || category/{id} 
         .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
           headers: {
             "Content-type": "application/json",
@@ -42,9 +47,8 @@ export default new Vuex.Store({
         .then((response) => {
           commit("SET_Products", response.data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
-
         });
     },
 

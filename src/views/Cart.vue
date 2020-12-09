@@ -1,11 +1,12 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="(product, index) in cart_vue" :key="index" cols="12" sm="4">
+      <v-col v-for="product in cart_vue" :key="product.id" cols="12" sm="4">
         <v-card>
-          <v-card-title>{{ product.title }}</v-card-title>
-          <v-card-text>{{ product.body }}</v-card-text>
-          <v-card-text>{{ product.id }}</v-card-text>
+          <v-card-title>{{ product.name }}</v-card-title>
+          <v-img :src="product.image" :alt="`image de ${product.name}`"> </v-img>
+          <v-card-text>{{ product.description }}</v-card-text>
+          <v-card-text>{{ product.price }}</v-card-text>
           <v-btn color="error" @click="delete_cart()">Supprimer</v-btn>
         </v-card>
       </v-col>
@@ -32,7 +33,7 @@ export default {
     },
     totalPrice() {
       return this.$store.state.cart.reduce((acc, v) => {
-        acc += v.id;
+        acc += v.price;
         return acc;
       }, 0);
     },

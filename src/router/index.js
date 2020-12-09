@@ -25,6 +25,7 @@ const routes = [
     path: "/boutique/:shop",
     name: "Shop",
     component: Shop,
+    props: true,
   },
   {
     path: "/nous_contacter",
