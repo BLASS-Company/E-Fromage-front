@@ -5,8 +5,8 @@
     </v-card>
     <v-card>
       <v-card-title>Créer une catégorie</v-card-title>
-      <v-text-field label="Entrer le nom d'une catégorie"></v-text-field>
-      <v-btn type="submit">Valider</v-btn>
+      <v-text-field label="Entrer le nom d'une catégorie" v-model="cat_name"></v-text-field>
+      <v-btn type="submit" @click="addCat()">Valider</v-btn>
     </v-card>
     <v-card>
       <v-card-title>Créer produit</v-card-title>
@@ -14,7 +14,12 @@
       <v-text-field label="Entrer la description du produit"></v-text-field>
       <v-row align="center">
         <v-col class="d-flex" cols="12" sm="6">
-          <v-select :items="items" label="Sélectionner la catégorie"></v-select>
+          <v-select
+          :items="categories"
+          item-text="name"
+          item-value="id"
+          label="Sélectionner la catégorie"
+          ></v-select>
         </v-col>
       </v-row>
       <v-text-field label="Entrer le stock"></v-text-field>
@@ -35,10 +40,27 @@
 </template>
 <script>
 export default {
+  name: "Admin",
   data() {
     return {
-      items: ["Cat 1", "Cat 2", "Cat 3", "Cat 4"],
-    };
+      cat_name: "",
+    }
+  },
+  computed: {
+    categories(){
+      return this.$store.state.categories;
+    }
+  },
+  methods: {
+    addCat() {
+      if (this.cat_name === null || this.cat_name === "") {
+        return
+      }
+      this.$store.dispatch('createCategory', this.cat_name);
+    }
+  },
+  mounted(){
+    this.$store.dispatch("loadCategories");
   },
 };
 </script>

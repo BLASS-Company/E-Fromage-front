@@ -12,6 +12,7 @@ export default new Vuex.Store({
     cart_count: 0,
     cart: [],
     profil: "",
+    categories: [],
   },
   mutations: {
     SET_Products(state, products) {
@@ -20,11 +21,17 @@ export default new Vuex.Store({
     UPDATE_Products(state, products) {
       state.products.push(products);
     },
-    UPDATE_Profil(state, profil) {
-      state.profil = profil.email;
+    SET_Categories(state, categories) {
+      state.categories = categories;
+    },
+    REFRESH_Categories(state, newcategory) {
+      state.categories.push(newcategory)
     },
     SET_Profil(state, profil) {
       state.profil = profil.username;
+    },
+    UPDATE_Profil(state, profil) {
+      state.profil = profil.email;
     },
   },
   actions: {
@@ -46,6 +53,39 @@ export default new Vuex.Store({
         })
         .then((response) => {
           commit("SET_Products", response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    loadCategories({ commit }) {
+      axios
+        .get(`${process.env.VUE_APP_ENDPOINT}/categories`, {
+          headers: {
+            "Content-type": "application/json",
+          },
+        })
+        .then((response) => {
+          commit("SET_Categories", response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    createCategory({commit}, category) {
+      let body = JSON.stringify({"name": category})
+      axios
+        .post(`${process.env.VUE_APP_ENDPOINT}/category`, {
+          headers: {
+            "Content-type": "application/json",
+          },
+          Body: body
+        })
+        .then((response) => {
+          console.log(response.data, commit)
+          // commit("REFRESH_Categories", response.data);
         })
         .catch((error) => {
           console.log(error);
