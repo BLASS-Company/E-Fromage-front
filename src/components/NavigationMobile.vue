@@ -3,17 +3,17 @@
     <v-app-bar prominent>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title> LA FERME DES PITECH</v-toolbar-title>
-      <v-btn icon><v-icon @click="go_to_cart()">fa-shopping-cart</v-icon>{{ cartcount }}</v-btn>
-      <v-btn icon><v-icon @click="go_to_sign_in()">fa-sign-in-alt</v-icon></v-btn>
-      <v-btn icon><v-icon @click="go_to_sign_up()">fa-user-plus</v-icon></v-btn>
+      <v-btn icon><v-icon @click="goToCart()">fa-shopping-cart</v-icon>{{ cartCount }}</v-btn>
+      <v-btn icon><v-icon @click="goToSignIn()">fa-sign-in-alt</v-icon></v-btn>
+      <v-btn icon><v-icon @click="goToSignUp()">fa-user-plus</v-icon></v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute>
       <v-list>
         <v-list-item-group>
-          <v-tab @click="go_to_home()">Accueil</v-tab>
-          <v-tab @click="go_to_shop()">Nos produits</v-tab>
-          <v-tab @click="go_to_contact()">Contact</v-tab>
-          <v-tab @click="go_to_about()">A propos</v-tab>
+          <v-tab @click="goToHome()">Accueil</v-tab>
+          <v-tab @click="goToShop()">Nos produits</v-tab>
+          <v-tab @click="goToContact()">Contact</v-tab>
+          <v-tab @click="goToAbout()">A propos</v-tab>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -27,30 +27,30 @@ export default {
     drawer: false,
   }),
   computed: {
-    cartcount() {
+    cartCount() {
       return this.$store.state.cart_count;
     },
   },
   methods: {
-    go_to_cart() {
+    goToCart() {
       this.$router.push("/mon_panier");
     },
-    go_to_sign_in() {
+    goToSignIn() {
       this.$router.push("/identifiez_vous");
     },
-    go_to_sign_up() {
+    goToSignUp() {
       this.$router.push("/inscrivez_vous");
     },
-    go_to_home() {
+    goToHome() {
       this.$router.push("/");
     },
-    go_to_shop() {
+    goToShop() {
       this.$router.push("/boutique/posts");
     },
-    go_to_contact() {
+    goToContact() {
       this.$router.push("/nous_contacter");
     },
-    go_to_about() {
+    goToAbout() {
       this.$router.push("/a_propos_de_nous");
     },
   },

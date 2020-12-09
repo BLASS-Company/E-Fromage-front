@@ -6,13 +6,13 @@
         <v-card-text>
           <v-form>
             <v-text-field v-model="username" label="Nom d'utilisateur" prepend-icon="mdi-account-circle" />
-            {{ errorusername }}
+            <span>{{ errorusername }}</span>
           </v-form>
         </v-card-text>
         <v-card-text>
           <v-form>
             <v-text-field v-model="email" :rules="emailRules" type="email" label="Adresse électronique" prepend-icon="mdi-email" />
-            {{ errormail }}
+           <span>{{ errormail }}</span>
           </v-form>
         </v-card-text>
         <v-card-text>
@@ -25,19 +25,14 @@
               prepend-icon="mdi-lock"
               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             >
-                     <template v-slot:append>
+              <template v-slot:append>
                 <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
-            <v-icon
-          color="primary"
-          dark
-          v-on="on"
-          @click="test()"
-        >{{essai}}</v-icon>
-      </template>
-      <span>Attention en cliquant sur cette icone votre mot de passe sera visible</span>
-    </v-tooltip>
-    </template>
+                  <template v-slot:activator="{ on }">
+                    <v-icon color="primary" dark v-on="on" @click="test()">{{ essai }}</v-icon>
+                  </template>
+                  <span>Attention en cliquant sur cette icone votre mot de passe sera visible</span>
+                </v-tooltip>
+              </template>
             </v-text-field>
             {{ errorpassword }}
           </v-form>
@@ -61,21 +56,20 @@ export default {
       errorusername: "",
       errormail: "",
       errorpassword: "",
-      essai: 'mdi-eye-off',
+      essai: "mdi-eye-off",
       showPassword: false,
       emailRules: [(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
       passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
     };
   },
   methods: {
-    test(){
-      if (this.showPassword == false && this.essai == 'mdi-eye-off') {
-        this.showPassword = true
-        this.essai = 'mdi-eye'
-      }
-      else {
-        this.showPassword = false
-        this.essai = 'mdi-eye-off'
+    test() {
+      if (this.showPassword == false && this.essai == "mdi-eye-off") {
+        this.showPassword = true;
+        this.essai = "mdi-eye";
+      } else {
+        this.showPassword = false;
+        this.essai = "mdi-eye-off";
       }
     },
     validEmail(email) {

@@ -36,8 +36,6 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          // console.log(response)
-          // console.log(commit)
           commit("SET_Products", response.data);
         })
         .catch(error => {

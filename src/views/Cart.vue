@@ -5,13 +5,14 @@
         <v-card>
           <v-card-title>{{ product.title }}</v-card-title>
           <v-card-text>{{ product.body }}</v-card-text>
-          <v-card-text>{{ product.price }}</v-card-text>
+          <v-card-text>{{ product.id }}</v-card-text>
           <v-btn color="error" @click="delete_cart()">Supprimer</v-btn>
         </v-card>
       </v-col>
     </v-row>
-    <v-card>
+    <v-card v-if="cart_vue.length">
       <v-card-title>Total : {{ totalPrice }} €</v-card-title>
+      <v-btn color="success">Valider mon panier</v-btn>
     </v-card>
   </v-container>
 </template>
@@ -31,7 +32,7 @@ export default {
     },
     totalPrice() {
       return this.$store.state.cart.reduce((acc, v) => {
-        acc += v.price;
+        acc += v.id;
         return acc;
       }, 0);
     },
