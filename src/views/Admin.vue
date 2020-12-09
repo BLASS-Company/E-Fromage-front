@@ -26,7 +26,7 @@
       <v-card-title>Supprimer un produit</v-card-title>
       <v-row align="center">
         <v-col class="d-flex" cols="12" sm="6">
-          <v-select :products="products" label="Sélectionner le produit"></v-select>
+          <v-select label="Sélectionner le produit"></v-select>
         </v-col>
       </v-row>
       <v-btn type="submit">Supprimer le produit</v-btn>
@@ -38,7 +38,6 @@ export default {
   data() {
     return {
       items: ["Cat 1", "Cat 2", "Cat 3", "Cat 4"],
-      products: "prod",
     };
   },
 };
