@@ -1,12 +1,14 @@
 <template>
   <v-container>
-        <v-card>
-          <v-card-title>{{ product.name }}</v-card-title>
-          <v-img aspect-ratio="1.5" :src="product.image" :alt="`image de ${product.name}`"> </v-img>
-          <v-card-text>{{ product.description }}</v-card-text>
-          <v-card-text>{{ product.price }}</v-card-text>
-          <v-btn small color="info" @click="add_cart()">Ajouter au panier</v-btn>
-        </v-card>
+    <v-card height="100%">
+      <v-card-title>{{ product.name }}</v-card-title>
+      <v-img aspect-ratio="2" :src="product.image" :alt="`image de ${product.name}`"> </v-img>
+      <v-card-subtitle>{{ product.description }}</v-card-subtitle>
+      <v-card-text>{{ product.price }} €</v-card-text>
+      <v-card-actions>
+        <v-btn small color="info" @click="add_cart()">Ajouter au panier</v-btn>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
 
