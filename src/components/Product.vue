@@ -1,16 +1,12 @@
 <template>
-  <v-container class="grey lighten-5">
-    <v-row>
-      <v-col  v-for="n in 3" :key="n" cols="12" sm="4">
+  <v-container>
         <v-card>
           <v-card-title>{{ product.name }}</v-card-title>
-          <v-img :src="product.image" :alt="`image de ${product.name}`"> </v-img>
+          <v-img aspect-ratio="1.5" :src="product.image" :alt="`image de ${product.name}`"> </v-img>
           <v-card-text>{{ product.description }}</v-card-text>
           <v-card-text>{{ product.price }}</v-card-text>
-          <v-btn color="info" @click="add_cart()">Ajouter au panier</v-btn>
+          <v-btn small color="info" @click="add_cart()">Ajouter au panier</v-btn>
         </v-card>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 

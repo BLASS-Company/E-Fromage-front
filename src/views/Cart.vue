@@ -14,6 +14,7 @@
     <v-card v-if="cart_vue.length">
       <v-card-title>Total : {{ totalPrice }} €</v-card-title>
       <v-btn color="success">Valider mon panier</v-btn>
+      <v-btn color="error" @click="deleteCartVue()">Supprimer mon panier</v-btn>
     </v-card>
   </v-container>
 </template>
@@ -26,6 +27,10 @@ export default {
       this.$store.state.cart_count -= 1;
       this.$store.state.cart.pop(this.product);
     },
+    deleteCartVue () {
+      this.$store.state.cart.splice(this.products)
+      this.$store.state.cart_count = 0;
+    }
   },
   computed: {
     cart_vue() {
