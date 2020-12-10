@@ -13,6 +13,9 @@ export default new Vuex.Store({
     cart: [],
     profil: "",
     categories: [],
+    message: "",
+    created: false,
+    errored: false,
   },
   mutations: {
     SET_Products(state, products) {
@@ -24,8 +27,10 @@ export default new Vuex.Store({
     SET_Categories(state, categories) {
       state.categories = categories;
     },
-    REFRESH_Categories(state, newcategory) {
-      state.categories.push(newcategory)
+    UPDATE_Categories(state, data) {
+      state.categories.push(data[0]);
+      state.message = data.message;
+      state.created = true;
     },
     SET_Profil(state, profil) {
       state.profil = profil.username;
@@ -33,6 +38,10 @@ export default new Vuex.Store({
     UPDATE_Profil(state, profil) {
       state.profil = profil.email;
     },
+    ERROR(state, message) {
+      state.message = message;
+      state.errored = true;
+    }
   },
   actions: {
     //route en get: .env/products || product/{id} || products_category/{id} || categories || category/{id}
@@ -55,7 +64,7 @@ export default new Vuex.Store({
           commit("SET_Products", response.data);
         })
         .catch((error) => {
-          console.log(error);
+          commit("ERROR", error.message)
         });
     },
 
@@ -70,25 +79,28 @@ export default new Vuex.Store({
           commit("SET_Categories", response.data);
         })
         .catch((error) => {
-          console.log(error);
+          commit("ERROR", error.message)
         });
     },
 
     createCategory({commit}, category) {
       let body = JSON.stringify({"name": category})
       axios
-        .post(`${process.env.VUE_APP_ENDPOINT}/category`, {
+        .post(`${process.env.VUE_APP_ENDPOINT}/category`, body, {
           headers: {
             "Content-type": "application/json",
           },
-          Body: body
         })
         .then((response) => {
-          console.log(response.data, commit)
-          // commit("REFRESH_Categories", response.data);
+          if (response.data.status == true){
+            commit("UPDATE_Categories", response.data);
+          }
+          else {
+            throw new Error("un problème est survenu lors de la création de la categorie")
+          }
         })
         .catch((error) => {
-          console.log(error);
+          commit("ERROR", error.message)
         });
     },
 
