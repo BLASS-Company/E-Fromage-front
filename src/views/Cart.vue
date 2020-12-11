@@ -51,11 +51,13 @@ export default {
     delete_cart() {
       this.$store.state.cart_count -= 1;
       this.$store.state.cart.pop(this.product);
+      localStorage.removeItem('$store.state.cart')
       
     },
     deleteCartVue() {
       this.$store.state.cart.splice(this.products);
       this.$store.state.cart_count = 0;
+      localStorage.clear()
     },
 
     validateCart() {
