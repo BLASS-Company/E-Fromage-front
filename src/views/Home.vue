@@ -10,14 +10,14 @@
           </router-link>
         </v-col>
         <v-col align-self="center" cols="6">
-          <v-img aspect-ratio="1.5" src="../assets/selection.jpg" alt="image de notre selection" />
+          <v-img aspect-ratio="1.5" src="https://images.unsplash.com/photo-1541696303913-8668e3f7e9fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="image de notre selection" />
         </v-col>
       </v-card>
     </v-container>
     <v-container>
       <v-card id="plate" height="500" class="d-flex text-center">
         <v-col align-self="center" cols="6">
-          <v-img aspect-ratio="1.5" src="../assets/plate.jpg" alt="image de nos plateaux fromages" />
+          <v-img aspect-ratio="1.5" src="https://images.unsplash.com/photo-1598306442890-742e834da092?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80" alt="image de nos plateaux fromages" />
         </v-col>
         <v-col cols="6" align-self="center">
           <v-card-title class="justify-center">Nos plateaux de fromages</v-card-title>
@@ -38,7 +38,7 @@
           </router-link>
         </v-col>
         <v-col align-self="center" cols="6">
-          <v-img aspect-ratio="1.5" src="../assets/present.jpg" alt="image de nos idées cadeaux" />
+          <v-img aspect-ratio="1.5" src="https://images.unsplash.com/photo-1540289917366-db90f08d2397?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1363&q=80" alt="image de nos idées cadeaux" />
         </v-col>
       </v-card>
     </v-container>
