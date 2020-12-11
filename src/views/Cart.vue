@@ -18,7 +18,7 @@
       <v-btn color="error" @click="deleteCartVue()">Supprimer mon panier</v-btn>
     </v-card>
     <v-card>
-      <ValidateForm v-if="ValidateFormView"/>
+      <ValidateForm v-if="ValidateFormView" />
     </v-card>
   </v-container>
 </template>
@@ -31,30 +31,43 @@ export default {
   components: {
     ValidateForm,
   },
-  data () {
+  data() {
     return {
-      ValidateFormView : false,
+      ValidateFormView: false,
+    };
+  },
+
+  mounted () {
+    if(localStorage.getItem("$store.state.cart")){
+      try{
+        this.$store.state.cart = JSON.parse(localStorage.getItem("$store.state.cart"))
+      } catch(e){
+        localStorage.removeItem('$store.state.cart')
+      }
     }
   },
+  
   methods: {
     delete_cart() {
       this.$store.state.cart_count -= 1;
       this.$store.state.cart.pop(this.product);
+      
     },
-    deleteCartVue () {
-      this.$store.state.cart.splice(this.products)
+    deleteCartVue() {
+      this.$store.state.cart.splice(this.products);
       this.$store.state.cart_count = 0;
     },
 
-    validateCart () {
-     this.ValidateFormView = true; 
+    validateCart() {
+      this.ValidateFormView = true;
     },
-    
+   
   },
   computed: {
     cart_vue() {
       return this.$store.state.cart;
     },
+   
     totalPrice() {
       return this.$store.state.cart.reduce((acc, v) => {
         acc += v.price;

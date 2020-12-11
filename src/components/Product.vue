@@ -30,6 +30,8 @@ export default {
     add_cart() {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(this.product);
+      const parsed = JSON.stringify(this.$store.state.cart)
+      localStorage.setItem('$store.state.cart', parsed)
     },
   },
 };
