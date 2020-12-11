@@ -1,11 +1,10 @@
 <template>
-
   <v-form ref="form" v-model="valid" lazy-validation>
     <v-text-title>Valider ma commande</v-text-title>
     <v-text-field v-model="name" :rules="nameRules" label="Name" required></v-text-field>
     <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
     <v-text-field v-model="phoneNumber" label="Numéro de téléphone" required></v-text-field>
-    <v-text-field  label="Adresse" required></v-text-field>
+    <v-text-field label="Adresse" required></v-text-field>
     <v-checkbox
       v-model="checkbox"
       :rules="[(v) => !!v || 'Vous devez accepter les conditions pour continuer']"

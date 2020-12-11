@@ -30,10 +30,10 @@ export default {
     add_cart() {
       this.$store.state.cart_count += 1;
       this.$store.state.cart.push(this.product);
-      const test = JSON.stringify(this.$store.state.cart_count)
-      localStorage.setItem('$store.state.carte_count', test)
-      const parsed = JSON.stringify(this.$store.state.cart)
-      localStorage.setItem('$store.state.cart', parsed)
+      const test = JSON.stringify(this.$store.state.cart_count);
+      localStorage.setItem("$store.state.cart_count", test);
+      const parsed = JSON.stringify(this.$store.state.cart);
+      localStorage.setItem("$store.state.cart", parsed);
     },
   },
 };
