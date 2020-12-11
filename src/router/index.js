@@ -7,6 +7,7 @@ import Cart from "@/views/Cart.vue";
 import Sign_in from "@/views/Sign_in.vue";
 import Sign_up from "@/views/Sign_up.vue";
 import Admin from "@/views/Admin.vue";
+import Categories from "@/components/Categories.vue";
 
 Vue.use(VueRouter);
 
@@ -15,11 +16,6 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-  },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: Admin,
   },
   {
     path: "/boutique/:shop",
@@ -46,6 +42,17 @@ const routes = [
     path: "/inscrivez_vous",
     name: "Sign_up",
     component: Sign_up,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
+  },
+  {
+    path: "/categories",
+    name: "Categories",
+    component: Categories,
+    props: true,
   },
   {
     path: "/a_propos_de_nous",
