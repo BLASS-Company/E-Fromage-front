@@ -148,6 +148,8 @@ export default new Vuex.Store({
           commit("SET_Profil", form);
         });
     },
+
+    
   },
   modules: {},
 });
