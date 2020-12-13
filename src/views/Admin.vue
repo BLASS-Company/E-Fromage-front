@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <Message />
     <v-card>
       <v-card-title> Bienvenue Admin</v-card-title>
     </v-card>
@@ -18,11 +17,9 @@
   </v-container>
 </template>
 <script>
-import Message from "../components/Message.vue";
 
 export default {
   name: "Admin",
-  components: { Message },
   data(){
     return {
       catname: "",

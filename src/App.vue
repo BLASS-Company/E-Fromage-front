@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Message />
     <NavigationMobile v-if="mobileView" />
     <Navbar v-if="!mobileView" />
     <v-main>
@@ -15,6 +16,7 @@ import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import NavigationMobile from "@/components/NavigationMobile.vue";
 import Scroll from "./components/Scroll.vue";
+import Message from "@/components/Message.vue";
 
 export default {
   name: "App",
@@ -24,6 +26,7 @@ export default {
     Footer,
     NavigationMobile,
     Scroll,
+    Message,
   },
 
   data: () => ({
