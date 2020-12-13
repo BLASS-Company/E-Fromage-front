@@ -1,7 +1,7 @@
 <template>
-    <v-container class="d-sm-flex flex-row flex-wrap">
-        <Product class="col-4" v-for="product in products" :key="product.id" v-bind:product="product" />
-    </v-container>
+  <v-container class="d-sm-flex flex-row flex-wrap">
+    <Product class="col-4" v-for="product in products" :key="product.id" v-bind:product="product" />
+  </v-container>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-card>
+    <v-card>
       <v-card-title>Créer produit</v-card-title>
       <v-text-field label="Entrer le nom du produit"></v-text-field>
       <v-text-field label="Entrer la description du produit"></v-text-field>
@@ -28,10 +28,8 @@
 
 <script>
 export default {
-
-}
+  name: "Products",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

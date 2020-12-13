@@ -4,26 +4,43 @@
       <v-card-title> Bienvenue Admin</v-card-title>
     </v-card>
     <v-card>
-      <v-card-title>Modifier les Categories</v-card-title>
-      <v-text-field label="chercher une categorie" v-model="catname"></v-text-field>
-      <v-select :items="categories" item-text="name" item-value="id" label="Sélectionner une catégorie"></v-select>
+      <v-card-title>Categories</v-card-title>
+      <v-text>Ici vous prourrez voir, créer, modifier ou supprimer les catégories</v-text>
       <v-card-actions>
-      <router-link :to="{name: 'Categories', params:{name: `${this.catname}`}}">
-      <v-btn>Voir les catégories</v-btn>
-      </router-link>
+        <router-link :to="{ name: 'Categories' }">
+          <v-btn>Voir les catégories</v-btn>
+        </router-link>
       </v-card-actions>
     </v-card>
-    
+    <v-divider></v-divider>
+    <v-card>
+      <v-card-title>Produits</v-card-title>
+      <v-text>Ici vous prourrez voir, créer, modifier ou supprimer les produits</v-text>
+      <v-card-actions>
+        <router-link :to="{ name: 'Products' }">
+          <v-btn>Voir les produits</v-btn>
+        </router-link>
+      </v-card-actions>
+    </v-card>
+    <v-divider></v-divider>
+    <v-card>
+      <v-card-title>Utilisateurs</v-card-title>
+      <v-text>Ici vous prourrez voir, modifier ou supprimer les utilisateurs</v-text>
+      <v-card-actions>
+        <router-link :to="{ name: 'Users' }">
+          <v-btn>Voir les utilisateurs</v-btn>
+        </router-link>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
 <script>
-
 export default {
   name: "Admin",
-  data(){
+  data() {
     return {
       catname: "",
-    }
+    };
   },
   computed: {
     categories() {

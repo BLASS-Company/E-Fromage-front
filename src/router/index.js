@@ -7,7 +7,11 @@ import Cart from "@/views/Cart.vue";
 import Sign_in from "@/views/Sign_in.vue";
 import Sign_up from "@/views/Sign_up.vue";
 import Admin from "@/views/Admin.vue";
-import Categories from "@/components/Categories.vue";
+import User from "@/views/User.vue";
+import Categories from "@/views/Categories.vue";
+import Products from "@/views/Products.vue";
+import Users from "@/views/Users.vue";
+import store from "@/store/index";
 
 Vue.use(VueRouter);
 
@@ -47,12 +51,61 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
+    beforeEnter(to, from, next) {
+      if (store.state.authenticated !== true && store.state.profil.admin !== 1) {
+        next("/identifiez_vous");
+      } else {
+        next();
+      }
+    },
   },
   {
     path: "/categories",
     name: "Categories",
     component: Categories,
-    props: true,
+    beforeEnter(to, from, next) {
+      if (store.state.authenticated !== true && store.state.profil.admin !== 1) {
+        next("/identifiez_vous");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/produits",
+    name: "Products",
+    component: Products,
+    beforeEnter(to, from, next) {
+      if (store.state.authenticated !== true && store.state.profil.admin !== 1) {
+        next("/identifiez_vous");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/utilisateurs",
+    name: "Users",
+    component: Users,
+    beforeEnter(to, from, next) {
+      if (store.state.authenticated !== true && store.state.profil.admin !== 1) {
+        next("/identifiez_vous");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/mon_profil",
+    name: "User",
+    component: User,
+    beforeEnter(to, from, next) {
+      if (store.state.authenticated !== true) {
+        next("/identifiez_vous");
+      } else {
+        next();
+      }
+    },
   },
   {
     path: "/a_propos_de_nous",

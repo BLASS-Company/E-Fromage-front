@@ -55,7 +55,7 @@ export default {
     },
     errored() {
       return this.$store.state.errored;
-    }
+    },
   },
 };
 </script>

@@ -16,6 +16,7 @@ export default new Vuex.Store({
     message: "",
     created: false,
     errored: false,
+    authenticated: false,
   },
   mutations: {
     SET_Products(state, products) {
@@ -29,30 +30,31 @@ export default new Vuex.Store({
     },
     UPDATE_Categories(state, data) {
       state.categories.push(data[0]);
-      state.message = data.message;
-      state.created = true;
     },
     SET_Profil(state, profil) {
-      state.profil = profil.username;
+      state.profil = profil;
     },
-    UPDATE_Profil(state, profil) {
-      state.profil = profil.email;
+    AUTH(state, auth) {
+      state.authenticated = auth;
+    },
+    SUCCES(state, message) {
+      state.message = message;
+      state.created = true;
     },
     ERROR(state, message) {
       state.message = message;
       state.errored = true;
-    }
+    },
+    LOGOUT(state) {
+      state.profil = "";
+      state.authenticated = false;
+    },
   },
   actions: {
-    //route en get: .env/products || product/{id} || products_category/{id} || categories || category/{id}
-    //route en post: .env/product || category || register || login
-    //route en put: .env/product/{id} || category/{id}
-    //route en delete: .env/product/{id} || category/{id}
-
     loadProducts({ commit }, id) {
-      let road = `products_category/${id}`
-      if (id == undefined){
-        road = "products"
+      let road = `products_category/${id}`;
+      if (id == undefined) {
+        road = "products";
       }
       axios
         .get(`${process.env.VUE_APP_ENDPOINT}/${road}`, {
@@ -64,7 +66,7 @@ export default new Vuex.Store({
           commit("SET_Products", response.data);
         })
         .catch((error) => {
-          commit("ERROR", error.message)
+          commit("ERROR", error.message);
         });
     },
 
@@ -79,12 +81,12 @@ export default new Vuex.Store({
           commit("SET_Categories", response.data);
         })
         .catch((error) => {
-          commit("ERROR", error.message)
+          commit("ERROR", error.message);
         });
     },
 
-    createCategory({commit}, category) {
-      let body = JSON.stringify({"name": category})
+    createCategory({ commit }, category) {
+      let body = JSON.stringify({ name: category });
       axios
         .post(`${process.env.VUE_APP_ENDPOINT}/category`, body, {
           headers: {
@@ -92,15 +94,15 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          if (response.data.status == true){
+          if (response.data.status == true) {
             commit("UPDATE_Categories", response.data);
-          }
-          else {
-            throw new Error("un problème est survenu lors de la création de la categorie")
+            commit("SUCCES", response.data.message);
+          } else {
+            throw new Error("un problème est survenu lors de la création de la categorie");
           }
         })
         .catch((error) => {
-          commit("ERROR", error.message)
+          commit("ERROR", error.message);
         });
     },
 
@@ -121,35 +123,6 @@ export default new Vuex.Store({
           this.commit("UPDATE_Products", response.data);
         });
     },
-    signin({ commit }, form) {
-      console.log(commit);
-      axios
-        .post("https://jsonplaceholder.typicode.com/posts", {
-          body: JSON.stringify(form),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          commit("UPDATE_Profil", form);
-        });
-    },
-    signup({ commit }, form) {
-      axios
-        .post("https://jsonplaceholder.typicode.com/posts", {
-          body: JSON.stringify(form),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          commit("SET_Profil", form);
-        });
-    },
-
-    
   },
   modules: {},
 });

@@ -12,7 +12,7 @@
         <v-card-text>
           <v-form>
             <v-text-field v-model="email" :rules="emailRules" type="email" label="Adresse électronique" prepend-icon="mdi-email" />
-           <span>{{ errormail }}</span>
+            <span>{{ errormail }}</span>
           </v-form>
         </v-card-text>
         <v-card-text>
@@ -23,12 +23,11 @@
               v-model="password"
               label="Mot de passe"
               prepend-icon="mdi-lock"
-              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             >
               <template v-slot:append>
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on }">
-                    <v-icon color="primary" dark v-on="on" @click="test()">{{ essai }}</v-icon>
+                    <v-icon color="primary" dark v-on="on" @click="changepwdtype()">{{ eyestatus }}</v-icon>
                   </template>
                   <span>Attention en cliquant sur cette icone votre mot de passe sera visible</span>
                 </v-tooltip>
@@ -56,20 +55,20 @@ export default {
       errorusername: "",
       errormail: "",
       errorpassword: "",
-      essai: "mdi-eye-off",
+      eyestatus: "mdi-eye-off",
       showPassword: false,
       emailRules: [(v) => /.+@.+/.test(v) || "Une adresse mail doit contenir un @"],
       passwordRules: [(v) => v.length > 6 || "Le mot de passe doit contenir plus de 6 caractères"],
     };
   },
   methods: {
-    test() {
-      if (this.showPassword == false && this.essai == "mdi-eye-off") {
+    changepwdtype() {
+      if (this.showPassword == false && this.eyestatus == "mdi-eye-off") {
         this.showPassword = true;
-        this.essai = "mdi-eye";
+        this.eyestatus = "mdi-eye";
       } else {
         this.showPassword = false;
-        this.essai = "mdi-eye-off";
+        this.eyestatus = "mdi-eye-off";
       }
     },
     validEmail(email) {
@@ -86,13 +85,39 @@ export default {
         this.errorpassword = "Merci de saisir un mot de passe avec plus de 6 caractères";
       } else {
         let form = {
-          username: this.username,
+          name: this.username,
           email: this.email,
           password: this.password,
         };
-        this.$store.dispatch("signup", form);
-        this.$router.push("/");
+        this.signup(form);
       }
+    },
+    signup(form) {
+      let body = JSON.stringify(form);
+      this.axios
+        .post(`${process.env.VUE_APP_ENDPOINT}/register`, body, {
+          headers: {
+            "Content-type": "application/json",
+          },
+        })
+        .then((response) => {
+          if (response.status == 200) {
+            let d = new Date();
+            d.setTime(d.getTime() + 1 * 24 * 60 * 60 * 1000);
+            let expires = "expires=" + d.toUTCString();
+            let profil = JSON.stringify(response.data.data);
+            document.cookie = `profil=${profil};${expires};path=/;secure`;
+            this.$store.commit("SET_Profil", response.data.data);
+            this.$store.commit("AUTH", true);
+            this.$store.commit("SUCCES", response.data.message);
+            this.$router.push("/");
+          } else {
+            throw new Error("un problème est survenu lors de l'enregistrement de votre compte");
+          }
+        })
+        .catch((error) => {
+          this.$store.commit("ERROR", error.message);
+        });
     },
   },
 };

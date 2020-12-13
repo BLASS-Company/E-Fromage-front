@@ -37,6 +37,21 @@ export default {
     handleView() {
       this.mobileView = window.innerWidth <= 700;
     },
+    getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    },
   },
   created() {
     this.handleView();
@@ -58,6 +73,14 @@ export default {
         localStorage.removeItem("$state.state.cart_count");
       }
     }
+    let profil = this.getCookie("profil");
+    let auth = false;
+    if (profil !== "") {
+      profil = JSON.parse(profil);
+      auth = true;
+    }
+    this.$store.commit("SET_Profil", profil);
+    this.$store.commit("AUTH", auth);
   },
 };
 </script>
